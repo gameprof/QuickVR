@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "com.exninja.quickvr",
   "version": "1.0.0",
   "displayName": "QuickVR",
@@ -19,5 +19,6 @@
     "name": "Jeremy Gibson Bond",
     "email": "jeremy@exninja.com",
     "url": "https://github.com/gameprof/"
-  }
+  },
+  "hideInEditor": false
 }

@@ -1,3 +1,10 @@
+// NOTE: If you import the excellent Naughty Attributes package by Denis Rizov, uncomment the #define below to use it for QuVR.
+// Naughty Attributes can be found at:
+//  https://assetstore.unity.com/packages/tools/utilities/naughty-attributes-129996
+//  or https://github.com/dbrizov/NaughtyAttributes
+
+//#define USE_NAUGHTY_ATTRIBUTES
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +19,15 @@ namespace QuickVR {
         static public Transform R_TRANS;
         static public Transform H_TRANS;
 
+        [Tooltip("This determines whether .down and .up are reset every Update or FixedUpdate")]
+        public eQuVR_ProgressOn progressButtonsOn    = eQuVR_ProgressOn.update;
+        [Tooltip("When true, this will post Debug.Warning messages on every .down or .up event on A, B, X, Y, and Menu.")]
+        public bool             debugButtonDownAndUp = false;
+        
+#if USE_NAUGHTY_ATTRIBUTES
+
         [Required( "Assign the CenterEyeAnchor to this" )]
+        [Tooltip( "Assign the CenterEyeAnchor to this" )]
         public Transform headAnchor;
 
         [BoxGroup( "Left Hand" )] public Transform           leftHandAnchor;
@@ -39,9 +54,39 @@ namespace QuickVR {
         [Range( -1, 1 )]
         [BoxGroup( "Right Hand" )] public float rThumbX, rThumbY;
         [BoxGroup( "Right Hand" )] public Vector2 rThumbStick;
+        
+#else 
+        
+        [Header("___These must be assigned in the inspector___")]
+        [Tooltip( "Assign the CenterEyeAnchor to this" )]
+        public Transform headAnchor;
+        public Transform           leftHandAnchor;
+        public OVRInput.Controller leftController;
+        public Transform           rightHandAnchor;
+        public OVRInput.Controller rightController;
+        
+        [Header("___Left Hand Controller Dynamic State___" )]
+        public QuVR_ButtonState x;
+        public QuVR_ButtonState y;
+        public QuVR_ButtonState menu;
+        [Range( 0, 1 )]
+        public float lTrigger, lGrip;
+        [Range( -1, 1 )]
+        public float lThumbX, lThumbY;
+        public Vector2 lThumbStick;
 
-        public eQuVR_ProgressOn progressButtonsOn    = eQuVR_ProgressOn.update;
-        public bool             debugButtonDownAndUp = false;
+
+        [Header("___Right Hand Controller Dynamic State___" )]
+        public QuVR_ButtonState a;
+        public QuVR_ButtonState b;
+        // public QuVR_ButtonState meta;
+        [Range( 0, 1 )]
+        public float rTrigger, rGrip;
+        [Range( -1, 1 )]
+        public float rThumbX, rThumbY;
+        public Vector2 rThumbStick;
+        
+#endif
         
         void Start() {
             S = this;
