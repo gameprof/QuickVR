@@ -8,8 +8,7 @@
   "changelogUrl": "https://github.com/gameprof/QuickVR/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/gameprof/QuickVR/blob/main/LICENSE.md",
   "dependencies": {
-    "com.meta.xr.sdk.core": "68.0.2",
-    "com.dbrizov.naughtyattributes": "2.1.4"
+    "com.meta.xr.sdk.core": "68.0.2"
   },
   "keywords": [
     "keyword1",
