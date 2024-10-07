@@ -8,8 +8,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using NaughtyAttributes;
 using UnityEngine;
+#if USE_NAUGHTY_ATTRIBUTES
+using NaughtyAttributes;
+#endif
 
 namespace QuickVR {
     [DefaultExecutionOrder( -99 )] // This should happen before other scripts
