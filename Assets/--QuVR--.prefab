@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 868231499369949872}
   - component: {fileID: 4712209982508332124}
-  - component: {fileID: 3030620061070837432}
   m_Layer: 0
   m_Name: --QuVR--
   m_TagString: Untagged
@@ -45,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb28cc585baadb47a1dd1369048af81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressButtonsOn: 0
+  debugButtonDownAndUp: 0
   headAnchor: {fileID: 0}
   leftHandAnchor: {fileID: 0}
   leftController: 1
+  rightHandAnchor: {fileID: 0}
+  rightController: 2
   x:
     name: 
     _state: 0
@@ -68,8 +71,6 @@ MonoBehaviour:
   lThumbX: 0
   lThumbY: 0
   lThumbStick: {x: 0, y: 0}
-  rightHandAnchor: {fileID: 0}
-  rightController: 2
   a:
     name: 
     _state: 0
@@ -85,28 +86,3 @@ MonoBehaviour:
   rThumbX: 0
   rThumbY: 0
   rThumbStick: {x: 0, y: 0}
-  progressButtonsOn: 0
-  debugButtonDownAndUp: 0
---- !u!114 &3030620061070837432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491689163877428654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573e1037fcad9c6419401f4252104e33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 8298691156450759838, guid: e9ecaec85c0c47642ad576bfcd39e5e2, type: 3}
-  minDrawDistance: 0.25
-  maxDrawDistance: 1
-  minShotSpeed: 1
-  maxShotSpeed: 10
-  bowstringTop: {fileID: 0}
-  bowstringBottom: {fileID: 0}
-  state: 0
-  currentArrow: {fileID: 0}
-  drawDist: 0
-  drawPercent: 0
