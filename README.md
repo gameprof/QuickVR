@@ -54,7 +54,12 @@ Here are some basic instructions to get you going.
    2. Select the **Meta XR Core SDK**.
    3. Click the **Samples** tab in the description of the package on the right.
    4. Beside **Sample Scenes**, click **Import** to bring them into your project.
-3. Add the **--QuVR--** prefab to the ControllerModels Sample Scene and set it up:
+3. Check to make sure that Meta XR doesn't have any issues it needs to fix.
+   1. From the menu bar, choose **Edit > Project Settings...** .
+   2. Select **Meta XR** from the list on the left.
+   3. Under the **Checklist**, fix anything that it needs to auto-fix.
+   4. I recommend that you let it make the recommended fixes as well.
+4. Drag the **--QuVR--** prefab from the `Packages / QuickVR / Assets` folder into the ControllerModels Sample Scene and set it up:
    1. Open the **ControllerModels** scene in `Samples / Meta XR Core SDK / [60.0.2] / Sample Scenes /`.
    2. The Quest works best with the Universal Render Pipeline, but the textures in the Meta XR Core XDK Samples aren't yet initially set up for URP. If your textures all show up as pink in URP, you will need to:
       1. Follow the directions below to make the Meta XR Core SDK a custom package so that you can upgrade the textures.
