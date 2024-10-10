@@ -1,7 +1,8 @@
-# QuickVR
-by Jeremy Gibson Bond
+# QuickVR - v1.0.0
 
-## Known Bugs and Issues
+#### by Jeremy Gibson Bond
+
+## Known Bugs and Issues (2024-10-09)
 1. It seems like the Menu button isn't reading properly, and Meta restricts me from reading the Meta button.
 
 ## Adding QuickVR to your Unity Project
