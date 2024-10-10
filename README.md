@@ -1,10 +1,23 @@
 # QuickVR
 by Jeremy Gibson Bond
 
-## Proper Unity Setup
+## Known Bugs and Issues
+1. It seems like the Menu button isn't reading properly, and Meta restricts me from reading the Meta button.
+
+## Adding QuickVR to your Unity Project
+1. Before importing QuickVR, you may want to first set up your Unity project according to the recommendations in the following two sections (**Proper Unity Setup** & **Git Setup**).
+2. In Unity, open the **Package Manager** ( Window > Package Manager ). 
+3. Click the **+** (plus) In the top-left corner of the Package Manager window and choose **Add package from git URL...** .
+4. Paste the URL of this GitRepo: **https://github.com/gameprof/QuickVR.git** .
+5. Click the **Add** button on the far right.
+6. Unity will install this package and the other two required packages automatically.
+7. The Meta XR Core SDK package will require a restart of Unity, and it will pop up an annoying alert asking you to let Meta track how you use it. This pop-up will appear repeatedly until you follow the steps below to remove it.
+8. After removing the pop-up, follow the **Testing QuickVR** steps below to make sure it's working for you.
+
+#### Proper Unity Setup
 The Meta XR Core SDK examples were built with the Built-in Render Pipeline, so I recommend starting from a **3D (Built-in Render Pipeline) Core** project template. 
 
-## Git Setup
+#### Git Setup
 I strongly recommend using Git for version control on your project. However, in order to do so, you will need the proper [.gitignore](https://github.com/MSU-mi231/Unity-3D-Template-2022.3/blob/main/.gitignore) and [.gitattributes](https://github.com/MSU-mi231/Unity-3D-Template-2022.3/blob/main/.gitattributes) files in the root level of your project. You are welcome to start a Git Repo as a copy of the [template that my students use for Unity 2022.3](https://github.com/MSU-mi231/Unity-3D-Template-2022.3).
 
 ## Required Packages
