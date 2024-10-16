@@ -25,6 +25,8 @@ namespace QuickVR {
         public eQuVR_ProgressOn progressButtonsOn    = eQuVR_ProgressOn.update;
         [Tooltip("When true, this will post Debug.Warning messages on every .down or .up event on A, B, X, Y, and Menu.")]
         public bool             debugButtonDownAndUp = false;
+        public bool debugVelocity = false;
+        
         
 #if USE_NAUGHTY_ATTRIBUTES
 
@@ -76,6 +78,8 @@ namespace QuickVR {
         [Range( -1, 1 )]
         public float lThumbX, lThumbY;
         public Vector2 lThumbStick;
+        public Vector3 lVelocity;
+        public Vector3 lAngularVelocity;
 
 
         [Header("___Right Hand Controller Dynamic State___" )]
@@ -87,6 +91,8 @@ namespace QuickVR {
         [Range( -1, 1 )]
         public float rThumbX, rThumbY;
         public Vector2 rThumbStick;
+        public Vector3 rVelocity;
+        public Vector3 rAngularVelocity;
         
 #endif
         
@@ -138,6 +144,9 @@ namespace QuickVR {
             lThumbX = lThumbStick.x;
             lThumbY = lThumbStick.y;
 
+            lVelocity = OVRInput.GetLocalControllerVelocity( leftController );
+            lAngularVelocity = OVRInput.GetLocalControllerAngularVelocity( leftController ) * Mathf.Rad2Deg;
+
 
             // Right Hand
             a.Set( OVRInput.Get( OVRInput.Button.One, rightController ) );
@@ -150,6 +159,9 @@ namespace QuickVR {
             rThumbStick = OVRInput.Get( OVRInput.Axis2D.PrimaryThumbstick, rightController );
             rThumbX = rThumbStick.x;
             rThumbY = rThumbStick.y;
+            
+            rVelocity = OVRInput.GetLocalControllerVelocity( rightController );
+            rAngularVelocity = OVRInput.GetLocalControllerAngularVelocity( rightController ) * Mathf.Rad2Deg;
 
             if ( debugButtonDownAndUp ) {
                 // Button Down
@@ -168,6 +180,12 @@ namespace QuickVR {
                 if (x.up) Debug.LogWarning("X Up"  );
                 if (y.up) Debug.LogWarning("Y Up"  );
                 if (menu.up) Debug.LogWarning("Menu Up"  );
+            }
+
+            if ( debugVelocity ) {
+                Debug.DrawLine( L_TRANS.position, L_TRANS.position + lVelocity, Color.green, 0 );
+                
+                Debug.DrawLine( R_TRANS.position, R_TRANS.position + rVelocity, Color.green, 0 );
             }
         }
 
@@ -205,6 +223,11 @@ namespace QuickVR {
         public static Vector3 LEuler => L_TRANS.eulerAngles;
         public static Vector3 REuler => R_TRANS.eulerAngles;
         public static Vector3 HEuler => H_TRANS.eulerAngles;
+        
+        public static Vector3 LVelocity => S.lVelocity;
+        public static Vector3 RVelocity => S.rVelocity;
+        public static Vector3 LAngularVelocity => S.lAngularVelocity;
+        public static Vector3 RAngularVelocity => S.rAngularVelocity;
 
     }
 }

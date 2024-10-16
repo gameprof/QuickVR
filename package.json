@@ -1,6 +1,6 @@
 {
   "name": "com.exninja.quickvr",
-  "version": "1.0.0",
+  "version": "2024.4.1",
   "displayName": "QuickVR",
   "description": "A package of tools to quickly get state information from Meta Quest Controllers.",
   "unity": "2022.3",
