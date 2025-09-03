@@ -1,6 +1,6 @@
 {
   "name": "com.exninja.quickvr",
-  "version": "2024.4.1",
+  "version": "2025.4.1",
   "displayName": "QuickVR",
   "description": "A package of tools to quickly get state information from Meta Quest Controllers.",
   "unity": "2022.3",
@@ -8,8 +8,7 @@
   "changelogUrl": "https://github.com/gameprof/QuickVR/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/gameprof/QuickVR/blob/main/LICENSE.md",
   "dependencies": {
-    "com.meta.xr.sdk.core": "68.0.2",
-    "com.unity.xr.oculus": "4.2.0"
+    "com.meta.xr.sdk.core": "78.0.0"
   },
   "keywords": [
     "keyword1",

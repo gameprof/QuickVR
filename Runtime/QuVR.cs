@@ -1,17 +1,38 @@
-// NOTE: If you import the excellent Naughty Attributes package by Denis Rizov, uncomment the #define below to use it for QuVR.
+// NOTE: If you import the excellent Naughty Attributes unity package by Denis Rizov,
+//    uncomment the #define below to use it for QuVR.
+//   However, in order to uncomment that line, and not have it get rewritten, you will need to copy the
+//    com.exninja.quickvr@… folder from this project's Library > PackageCache folder to its Packages folder
+
+// #define USE_NAUGHTY_ATTRIBUTES
+
 // Naughty Attributes can be found at:
 //  https://assetstore.unity.com/packages/tools/utilities/naughty-attributes-129996
 //  or https://github.com/dbrizov/NaughtyAttributes
 
-//#define USE_NAUGHTY_ATTRIBUTES
+
+// While you're at it, you might as well also fix the extremely annoying bug where Meta constantly asks you
+//  to allow it to record telemetry. To fix this annoying issue (which has been around for years!):
+//   1. Copy the com.meta.xr.sdk.core@… (with … being whatever the current version number is) folder from
+//       this project's Library > PackageCache folder to its Packages folder.
+//   2. In the Unity Project pane, open the Packages > Meta XR Core SDK > Editor > OVRTelemetry folders
+//   3. Within OVRTelemetry, open the OVRTelemetryPopup.cs script
+//   4. In that script, change the ShouldShowPopup() method to _always_ return false. e.g.:
+//          private static bool ShouldShowPopup() {
+//              return false;
+//          }
+//   5. Note that every time Meta updates these tools--which is frequently--you will need to do this again
+//       until they finally fix the annoying bug.
+
+
+#if USE_NAUGHTY_ATTRIBUTES
+using NaughtyAttributes;
+#endif
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if USE_NAUGHTY_ATTRIBUTES
-using NaughtyAttributes;
-#endif
+
 
 namespace QuickVR {
     [DefaultExecutionOrder( -99 )] // This should happen before other scripts
@@ -45,6 +66,8 @@ namespace QuickVR {
         [Range( -1, 1 )]
         [BoxGroup( "Left Hand" )] public float lThumbX, lThumbY;
         [BoxGroup( "Left Hand" )] public Vector2 lThumbStick;
+        [BoxGroup( "Left Hand" )] public Vector3 lVelocity;
+        [BoxGroup( "Left Hand" )] public Vector3 lAngularVelocity;
 
 
         [BoxGroup( "Right Hand" )] public Transform           rightHandAnchor;
@@ -58,6 +81,8 @@ namespace QuickVR {
         [Range( -1, 1 )]
         [BoxGroup( "Right Hand" )] public float rThumbX, rThumbY;
         [BoxGroup( "Right Hand" )] public Vector2 rThumbStick;
+        [BoxGroup( "Right Hand" )] public Vector3 rVelocity;
+        [BoxGroup( "Right Hand" )] public Vector3 rAngularVelocity;
         
 #else 
         
