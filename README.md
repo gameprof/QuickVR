@@ -1,4 +1,4 @@
-# QuickVR - v1.0.0
+# QuickVR - v2025.4.1
 
 #### by Jeremy Gibson Bond
 
